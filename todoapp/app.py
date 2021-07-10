@@ -4,7 +4,7 @@ import sys
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:shororo123@localhost:5433/todoapp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ishraq:Ishraq Ahmed Jamaluddin@localhost:5432/todoapp'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -18,6 +18,7 @@ class Todo(db.Model):
     def __repr__(self):
         return f'<Todo {self.id} {self.description}>'
 
+db.create_all()
 
 @app.route('/todos/create', methods=['POST'])
 def create_todo():
